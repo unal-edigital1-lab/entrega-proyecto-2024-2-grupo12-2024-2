@@ -1,7 +1,10 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=17845113&assignment_repo_type=AssignmentRepo)
 # Entrega 1 del proyecto WP01
 # Informe Inicial: Proyecto "Snake"
-
+##Integrantes
+**Deyvid Santafe Quicazaque**
+**Alejandro Zapata**
+**Juan Rojas**
 ## 1. Introducción
 El proyecto "Snake Game" en FPGA tiene como objetivo principal diseñar e implementar una versión interactiva del clásico juego de la serpiente, incorporando un nivel de innovación mediante el uso de sensores, como un acelerómetro, para el control de la serpiente. Este enfoque no solo busca mejorar la experiencia de juego, haciéndola más inmersiva y desafiante, sino también ofrecer un reto técnico que permita aplicar los conceptos fundamentales de Electrónica Digital aprendidos durante el curso.
 
@@ -24,7 +27,6 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 - **Salida**: Gráficos del juego renderizados en la pantalla VGA.
 
 ### Diagrama de Caja Negra
-(Agregar un diagrama donde se muestren las conexiones principales entre la FPGA, el acelerómetro y la pantalla VGA).
 
 ## 3. Arquitectura del Sistema
 ### Definición de Periféricos y Módulos
