@@ -69,7 +69,3 @@ Se creará un repositorio en Git que incluirá:
 - Código fuente en HDL (Verilog o VHDL).
 - Simulaciones y resultados.
 - Documentación clara de cada módulo.
-
----
-Este documento inicial establece las bases para el desarrollo del proyecto, permitiendo ajustar y ampliar los detalles según avance el diseño e implementación.
-
