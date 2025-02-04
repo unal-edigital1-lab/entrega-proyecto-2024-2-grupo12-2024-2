@@ -27,6 +27,7 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 - **Salida**: Gráficos del juego renderizados en la pantalla VGA.
 
 ### Diagrama de Caja Negra
+![image](https://github.com/user-attachments/assets/1d9a46f2-b2a8-41c9-b0f3-2c2223a98dd4)
 
 ## 3. Arquitectura del Sistema
 ### Definición de Periféricos y Módulos
