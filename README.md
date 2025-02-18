@@ -1,7 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=17845113&assignment_repo_type=AssignmentRepo)
 # Entrega 1 del proyecto WP01
 # Informe Inicial: Proyecto "Snake"
-##Integrantes
+## Integrantes
 **Deyvid Santafe Quicazaque**
 **Alejandro Zapata**
 **Juan Rojas**
@@ -15,7 +15,6 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 1. **FPGA**: Plataforma central del proyecto, encargada de la implementación lógica del juego.
 2. **Acelerómetro**: Sensor que medirá la inclinación para determinar la dirección de movimiento de la serpiente.
 3. **Pantalla VGA**: Dispositivo de salida para mostrar el tablero y el estado del juego.
-4. **Módulo de Control FSM**: Una máquina de estado que gestionará la lógica del juego, como el movimiento de la serpiente y la detección de colisiones.
 5. **Módulo de Generación de Gráficos**: Encargado de la visualización de los elementos del juego en la pantalla VGA.
 6. **Módulo de Interfaz del Acelerómetro**: Convertirá las señales analógicas o digitales del sensor en datos que puedan ser interpretados por la FPGA.
 
@@ -34,16 +33,11 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 1. **Acelerómetro**:
    - **Función**: Detectar cambios en la inclinación para controlar la dirección de la serpiente.
    - **Conexión**: A través de un módulo de interfaz (I2C o SPI, dependiendo del sensor seleccionado) conectado a la FPGA.
-
-2. **FSM del Juego**:
-   - **Función**: Gestionar los estados del juego: inicio, movimiento, colisión y reinicio.
-   - **Conexión**: Recibe datos del acelerómetro y genera instrucciones para los gráficos.
-
-3. **Generador de Gráficos**:
+2. **Generador de Gráficos**:
    - **Función**: Dibujar la serpiente, la comida y el tablero en la pantalla VGA.
    - **Conexión**: Recibe instrucciones de la FSM y envía señales a la pantalla.
 
-4. **Pantalla VGA**:
+3. **Pantalla VGA**:
    - **Función**: Mostrar el estado del juego.
    - **Conexión**: Directamente al módulo de generación de gráficos.
 
