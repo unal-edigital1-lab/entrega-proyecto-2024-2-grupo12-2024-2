@@ -6,14 +6,14 @@
 **Alejandro Zapata**
 **Juan Rojas**
 ## 1. Introducción
-El proyecto "Snake Game" en FPGA tiene como objetivo principal diseñar e implementar una versión interactiva del clásico juego de la serpiente, incorporando un nivel de innovación mediante el uso de sensores, como un acelerómetro, para el control de la serpiente. Este enfoque no solo busca mejorar la experiencia de juego, haciéndola más inmersiva y desafiante, sino también ofrecer un reto técnico que permita aplicar los conceptos fundamentales de Electrónica Digital aprendidos durante el curso.
+El proyecto "Snake Game" en FPGA tiene como objetivo principal diseñar e implementar una versión interactiva del clásico juego de la serpiente, incorporando un nivel de innovación mediante el uso de sensores, para el control de la serpiente. Este enfoque no solo busca mejorar la experiencia de juego, haciéndola más inmersiva y desafiante, sino también ofrecer un reto técnico que permita aplicar los conceptos fundamentales de Electrónica Digital aprendidos durante el curso.
 
 El proyecto servirá como un ejercicio integrador de los conocimientos adquiridos, abarcando temas como la lógica combinacional y secuencial, las máquinas de estado algorítmico (ASM), el diseño de datapaths y unidades de control, y la implementación en HDL.
 
 ## 2. Especificación del Sistema
 ### Componentes Principales
 1. **FPGA**: Plataforma central del proyecto, encargada de la implementación lógica del juego.
-2. **Acelerómetro**: Sensor que medirá la inclinación para determinar la dirección de movimiento de la serpiente.
+2. **Sensores**: Sensor que medirá la inclinación para determinar la dirección de movimiento de la serpiente.
 3. **Pantalla VGA**: Dispositivo de salida para mostrar el tablero y el estado del juego.
 5. **Módulo de Generación de Gráficos**: Encargado de la visualización de los elementos del juego en la pantalla VGA.
 6. **Módulo de Interfaz del Acelerómetro**: Convertirá las señales analógicas o digitales del sensor en datos que puedan ser interpretados por la FPGA.
@@ -30,7 +30,7 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 
 ## 3. Arquitectura del Sistema
 ### Definición de Periféricos y Módulos
-1. **Acelerómetro**:
+1. **Sensores**:
    - **Función**: Detectar cambios en la inclinación para controlar la dirección de la serpiente.
    - **Conexión**: A través de un módulo de interfaz (I2C o SPI, dependiendo del sensor seleccionado) conectado a la FPGA.
 2. **Generador de Gráficos**:
@@ -45,7 +45,7 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 El sistema se dividirá en módulos funcionales que interactúan entre sí mediante buses de datos y señales de control. Se priorizará la simulación de cada componente antes de su integración.
 
 ## 4. Innovación
-La elección de un acelerómetro como dispositivo de entrada representa una mejora significativa respecto al control tradicional con joysticks o teclas. Este sensor aumenta la interactividad del juego, desafiando al jugador a controlar la serpiente mediante movimientos físicos. Desde el punto de vista técnico, implica el diseño de un sistema de lectura y procesamiento de datos del sensor, así como la implementación de algoritmos que traduzcan estas señales en comandos precisos para la FSM del juego.
+La elección de un sensor como dispositivo de entrada representa una mejora significativa respecto al control tradicional con joysticks o teclas. Este sensor aumenta la interactividad del juego, desafiando al jugador a controlar la serpiente mediante movimientos físicos. Desde el punto de vista técnico, implica el diseño de un sistema de lectura y procesamiento de datos del sensor, así como la implementación de algoritmos que traduzcan estas señales en comandos precisos para la FSM del juego.
 
 ## 5. Plan Inicial de Implementación
 1. **Etapa 1: Diseño y Simulación**
