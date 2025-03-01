@@ -26,7 +26,8 @@ El proyecto servirá como un ejercicio integrador de los conocimientos adquirido
 - **Salida**: Gráficos del juego renderizados en la pantalla VGA.
 
 ### Diagrama de Caja Negra
-![image](https://github.com/user-attachments/assets/1d9a46f2-b2a8-41c9-b0f3-2c2223a98dd4)
+![image](https://github.com/user-attachments/assets/7649681d-f2c5-4b72-ae7c-f25aa0b167ab)
+
 
 ## 3. Arquitectura del Sistema
 ### Definición de Periféricos y Módulos
@@ -48,19 +49,19 @@ El sistema se dividirá en módulos funcionales que interactúan entre sí media
 La elección de un sensor como dispositivo de entrada representa una mejora significativa respecto al control tradicional con joysticks o teclas. Este sensor aumenta la interactividad del juego, desafiando al jugador a controlar la serpiente mediante movimientos físicos. Desde el punto de vista técnico, implica el diseño de un sistema de lectura y procesamiento de datos del sensor, así como la implementación de algoritmos que traduzcan estas señales en comandos precisos para la FSM del juego.
 
 ## 5. Plan Inicial de Implementación
-1. **Etapa 1: Diseño y Simulación**
-   - Diseñar y simular la FSM del juego.
+1. **Etapa 1: VGA**
+   - Verificar el funcionamiento de la VGA disponible.
    - Implementar un módulo básico de generación de gráficos en VGA.
-2. **Etapa 2: Interfaz del Acelerómetro**
-   - Diseñar el módulo de lectura del acelerómetro.
-   - Simular y verificar la recepción de datos.
-3. **Etapa 3: Integración y Pruebas**
-   - Integrar la FSM, la generación de gráficos y la entrada del acelerómetro.
-   - Realizar pruebas en hardware.
-
+   - Comenzar a implementar la interfaz del juefo para visualizar en VGA
+  2. **Etapa 2: Logica del juego, interaccion con botones**
+   - Despues de hecha la interfaz del juego, configurar los botones de la FPGA para el movimiento de la serpiente.
+   - Implwmwntar y verificar la recepción de datos.
+3. **Etapa 3: Sensores**
+   - Entender la funcionalidad de los sensores, de este modo podemos reemplazar los botones con los gestos de movimiento en los sensores, para asi manejar el movimiento de la serpiente
+4. **Etapa 4: union e implementacion del juego**
+  - Reemplazar los botones por los sensores para que el juego sea mas dinamico.
 ## 6. Documentación Git
 Se creará un repositorio en Git que incluirá:
 - Diseños iniciales y diagramas.
 - Código fuente en HDL (Verilog o VHDL).
-- Simulaciones y resultados.
 - Documentación clara de cada módulo.
