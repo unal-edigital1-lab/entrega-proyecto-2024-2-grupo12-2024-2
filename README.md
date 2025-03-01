@@ -65,3 +65,6 @@ Se creará un repositorio en Git que incluirá:
 - Diseños iniciales y diagramas.
 - Código fuente en HDL (Verilog o VHDL).
 - Documentación clara de cada módulo.
+## 7. Desarrollo:
+# 1. VGA:#
+
