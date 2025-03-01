@@ -66,5 +66,10 @@ Se creará un repositorio en Git que incluirá:
 - Código fuente en HDL (Verilog o VHDL).
 - Documentación clara de cada módulo.
 ## 7. Desarrollo:
-# 1. VGA:#
+### 1. VGA:
+Para esta parte comenzamos configurando colores dentro de la pantalla, esto con el fin de ver que el codigo funcionara, posterior a esto creamos la cabeza de la serpiente, sin movimiento, solo estatica, en el centro de la pantalla, ya teniendo esto podiamos proseguir con las otras secciones del juego.
+### 2. Logica del juego, interaccion con botones:
+En esta seccion comenzamos a mover a la serpiente a traves de la pantalla, para el momento inicial la serpiente traspasaba los bordes de la pantalla y daba la vuelta, y se requeria oprimir mas de un boton para que cambiara la direccion. Otro problema que se presento en esta seccion fue calibrar la velocidad a la que se movia la serpiente, pero al ajustar este parametro a la velocidad que deseabamos, ya pudimos pasar al otro factor que era ubicar la comida de la serpiente dentro del rango visible de la pantalla.
+### 3. Sensores:
+
 
