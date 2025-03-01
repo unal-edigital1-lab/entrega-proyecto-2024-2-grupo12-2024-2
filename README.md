@@ -58,7 +58,7 @@ La elección de un sensor como dispositivo de entrada representa una mejora sign
    - Implwmwntar y verificar la recepción de datos.
 3. **Etapa 3: Sensores**
    - Entender la funcionalidad de los sensores, de este modo podemos reemplazar los botones con los gestos de movimiento en los sensores, para asi manejar el movimiento de la serpiente
-4. **Etapa 4: union e implementacion del juego**
+4. **Etapa 4: Union e implementacion del juego**
   - Reemplazar los botones por los sensores para que el juego sea mas dinamico.
 ## 6. Documentación Git
 Se creará un repositorio en Git que incluirá:
@@ -71,5 +71,6 @@ Para esta parte comenzamos configurando colores dentro de la pantalla, esto con 
 ### 2. Logica del juego, interaccion con botones:
 En esta seccion comenzamos a mover a la serpiente a traves de la pantalla, para el momento inicial la serpiente traspasaba los bordes de la pantalla y daba la vuelta, y se requeria oprimir mas de un boton para que cambiara la direccion. Otro problema que se presento en esta seccion fue calibrar la velocidad a la que se movia la serpiente, pero al ajustar este parametro a la velocidad que deseabamos, ya pudimos pasar al otro factor que era ubicar la comida de la serpiente dentro del rango visible de la pantalla.
 ### 3. Sensores:
-
-
+Teniendo dos sensores de proximidad, se probaron con la FPGA, debido a que se necesitaba verificar que si pasara los 5 voltios que pedian dichos sensores, configurando los LEDs que tiene la FPGA, comenzamos a probar la proximidad a la que el sensor cambiaba, y con esto comprendimos que solo se necesitaban dos sensores, ya que dentro del rango de 30 centimetros el sensor le dara una direccion a la serpiente pero pasado este rango cambiara la direccion.
+### 4. Union e implementacion del juego:
+Configurar el codigo que ya teniamos para que detectara a los sensores como los controles de movimiento fue lo mas demorado de esta fase, pero ya teniendo eso terminamos de ajustar los ultimos detalles del juego como lo son los bordes, que se reincie al momento de tocar alguno de estos, y unificar los codigos con el fin que sea mas eficiente.
