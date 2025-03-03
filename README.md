@@ -161,7 +161,7 @@ Funcionalidad Clave
 - **Comentarios**: Explicación de parámetros críticos:  
   ```verilog
   parameter SPEED_DIVIDER = 6_250_000;  // Controla velocidad (ajustable)
-  ```
+
 11. Demostración y Resultados
 Funcionamiento:
   - Conectar sensores a pines GPIO trigger y echo
