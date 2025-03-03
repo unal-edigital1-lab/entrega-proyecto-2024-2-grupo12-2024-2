@@ -161,13 +161,13 @@ Funcionalidad Clave
 - **Comentarios**: Explicación de parámetros críticos:  
   ```verilog
   parameter SPEED_DIVIDER = 6_250_000;  // Controla velocidad (ajustable)
-
+---
 11. Demostración y Resultados
 Funcionamiento:
   - Conectar sensores a pines GPIO trigger y echo
   - Programar FPGA y conectar pantalla VGA.
   - Jugar usando gestos de proximidad.
-
+---
 12. Limitaciones y Mejoras Futuras
 Limitaciones Actuales
   - Resolución Gráfica: Fija en 640x480.
