@@ -61,13 +61,7 @@ Funcionalidad Clave
   - Colisiones: Reinicio automático al tocar bordes o el propio cuerpo.
   - Crecimiento: La serpiente aumenta de longitud al "comer" comida generada aleatoriamente.
 
-
-
-## 4. Innovación
-- Interacción sin Contacto: Elimina la necesidad de botones físicos, usando gestos para un control más inmersivo.
-- Optimización de HDL: Implementación en un solo módulo Verilog con:
-  - Máquinas de estado para sensores.
-  - Temporizadores de velocidad ajustables (SPEED_DIVIDER).
+---
 
 ## 4. Innovación
 - **Interacción sin Contacto**: Elimina la necesidad de botones físicos, usando gestos para un control más inmersivo.  
@@ -88,41 +82,45 @@ Funcionalidad Clave
 
 ---
 
-## 6. Desarrollo Técnico
-### Módulos Principales
-1. **Lógica del Juego**:  
-   - **Movimiento basado en dirección (`direction`)**:  
-     - `2'b00`: Derecha.  
-     - `2'b01`: Izquierda.  
-     - `2'b10`: Arriba.  
-     - `2'b11`: Abajo.  
-   - **Reinicio automático al detectar colisión (`game_reset`)**:  
-     - Colisión con bordes o con el propio cuerpo.  
-     - Reinicio de posición y longitud de la serpiente.  
+## 6. Desarrollo Técnico y Descripción del Código
+### Descripción Breve del Código Utilizado
+El módulo principal, `snake_game`, se encarga de integrar todas las funcionalidades del juego. Entre sus bloques se incluyen:
+- **Configuración y Parámetros:**  
+  Define parámetros clave como la frecuencia de reloj, divisores de velocidad y umbrales para los sensores ultrasónicos.
+- **Calibración de Sensores:**  
+  Se implementan dos FSM (una para cada sensor) para generar el pulso de disparo y medir el tiempo de respuesta del HC-SR04. Aquí se sincroniza la señal de los sensores con el reloj de 50 MHz.  
+  *Nota: El mayor reto fue precisamente calibrar estos sensores, ya que se deben sincronizar correctamente para obtener mediciones precisas y, a la vez, evitar interferencias en el sistema.*
+- **Lógica del Juego y Movimiento de la Serpiente:**  
+  Se utiliza una máquina de estados para gestionar el movimiento de la serpiente y actualizar su "cola" (arreglo de coordenadas). Se realiza una copia secuencial de las posiciones, lo que permite que la cola siga de manera coherente la cabeza del snake.  
+  *Reto adicional:* Sincronizar la actualización de la "cola" con el reloj para que el movimiento sea fluido y sin desajustes.
+- **Generación de la Señal VGA:**  
+  Se dibujan la serpiente, la comida y los bordes del área de juego mediante la generación de señales sincronizadas (hsync, vsync) para una resolución de 640x480.
+- **Detección de Colisiones y Reset:**  
+  Se implementa lógica para detectar colisiones con bordes y con la misma serpiente, activando un reset del juego en caso de colisión.
 
-2. **Generador VGA**:  
-   - **Sincronización horizontal/vertical (`hsync`, `vsync`)**:  
-     - Control de refresco de pantalla a 60 Hz.  
-   - **Renderizado de serpiente y comida en cuadrícula 64x48**:  
-     - Cada celda de la cuadrícula representa 10x10 píxeles en VGA.  
-     - La serpiente se dibuja como un conjunto de cuadrados verdes (`rgb = 3'b010`).  
-     - La comida se dibuja como un cuadrado rojo (`rgb = 3'b100`).  
+### Comentarios del Código
+Cada sección del código está comentada para explicar su funcionalidad. Por ejemplo, se describen los parámetros que controlan la velocidad y la calibración de los sensores, así como la forma en que se actualizan las posiciones de la serpiente en cada ciclo.
 
 ---
 
 ## 7. Simulaciones y Pruebas
 ### Resultados Clave
-- **Validación con LEDs**:  
-  - `leds[1:0]`: Indicadores de dirección vertical (01=Arriba, 10=Abajo).  
-  - `leds[3:2]`: Indicadores de dirección horizontal.  
-- **Métricas**:  
-  | Parámetro               | Valor              |
-  |-------------------------|--------------------|
-  | Tiempo de respuesta     | <100 ms            |
-  | Velocidad del juego     | 4 fps              |
-  | Consumo de LUTs (FPGA) | 45%                |
+- **Validación mediante LEDs:**  
+  - LEDs indican las direcciones detectadas por los sensores (vertical y horizontal).
+- **Testbench y Simulaciones:**  
+  Se han realizado simulaciones para verificar que:
+  - La señal VGA se genera correctamente y sin parpadeos.
+  - La lectura de los sensores se calibra adecuadamente.
+  - El movimiento de la serpiente y la actualización de su cola ocurren de forma sincronizada.
+  
+| Parámetro               | Valor              |
+|-------------------------|--------------------|
+| Tiempo de respuesta     | <100 ms            |
+| Velocidad del juego     | 4 fps              |
+| Consumo de LUTs (FPGA)  | 45% aproximadamente|
 
 ---
+
 
 ## 8. Prototipo Final
 ### Características
@@ -137,41 +135,46 @@ Funcionalidad Clave
 
 ## 9. Trabajo en Equipo
 ### Gestión del Proyecto
-- **Herramientas**: GitHub para control de versiones, WhatsApp para comunicación.  
-- **Distribución de Tareas**:  
+- **Herramientas:**  
+  Se utilizó GitHub para el control de versiones y WhatsApp para la coordinación.
+- **Distribución de Tareas:**  
   | Integrante           | Responsabilidad                              |
-  |----------------------|---------------------------------------------|
-  | Deyvid Santafe       | Lógica del juego y integración VGA.         |
-  | Alejandro Zapata     | Interfaz de sensores y pruebas.             |
-  | Juan Rojas           | Documentación y simulación.                 |
+  |----------------------|----------------------------------------------|
+  | Deyvid Santafe       | Lógica del juego, calibración de sensores y VGA.|
+  | Alejandro Zapata     | Interfaz de sensores, pruebas y simulaciones.|
+  | Juan Rojas           | Documentación, testbenches y análisis de resultados.|
 
 ---
+
 ## 10. Documentación y Repositorio
 ### Estructura del Repositorio
-├── src/
-│ ├── snake_game_with_ultrasonic.v # Código principal
-│ └── constraints.xdc # Asignación de pines
-├── docs/
-│ ├── diagramas/ # Diagramas de bloques
-│ └── especificaciones.pdf # Documentación técnica
-└── README.md # Este archivo
+```
+/src
+   └── snake_game.v        # Código HDL principal
+   └── constraints.xdc     # Asignación de pines
+/qpf
+   └── vga.qpf            # Simulación Quartus
+README.md                 # Este archivo
+```
+- **Estándares de Código:**  
+  Se han utilizado nombres descriptivos y comentarios detallados en cada módulo para facilitar la comprensión y el mantenimiento.
 
-### Estándares de Código
-- **Convenciones**: Nombres descriptivos (ej: `snake_x`, `food_y`).  
-- **Comentarios**: Explicación de parámetros críticos:  
-  ```verilog
-  parameter SPEED_DIVIDER = 6_250_000;  // Controla velocidad (ajustable)
 ---
+
 ## 11. Demostración y Resultados
 ### Funcionamiento:
   - Conectar sensores a pines GPIO trigger y echo
   - Programar FPGA y conectar pantalla VGA.
   - Jugar usando gestos de proximidad.
 ---
+
+
 ## 12. Limitaciones y Mejoras Futuras
 ### Limitaciones Actuales
-  - Resolución Gráfica: Fija en 640x480.
-  - Detección de Colisiones: Básica (solo bordes).
+- Resolución gráfica fija en 640x480.
+- Detección de colisiones básica (sólo bordes y colisión consigo mismo).
 ### Propuestas de Mejora
-  - Menú Interactivo: Usar pantalla OLED para puntuación.
-  - Modo Multijugador: Dos serpientes controladas por 4 sensores.
+- Incluir un menú interactivo y puntuación utilizando una pantalla OLED.
+- Implementar un modo multijugador con controles adicionales.
+- Mejorar la calibración de sensores para una mayor precisión en entornos ruidosos.
+- Optimizar la lógica de actualización de la cola para evitar cualquier desajuste.
